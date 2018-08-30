@@ -21,11 +21,3 @@ To test the application on linux you can use [dig](https://en.wikipedia.org/wiki
 $ dig @127.0.0.1 www.zomato.com
 ```
 If everything goes well you may see the dig output. The dig is communicating to localhost at 53 port which in turn uses cloudflare DNS for resolution
-
-### Questions
-- What are the security concerns for this kind of service?
-  DNS over TLS is better as it encrypts the DNS traffic. So no one  sitting in between my server and Cloudflare server would know what is being browsed.
-- Considering a microservice architecture; how would you see this the dns to dns-over-tls proxy used?
- Answer: We can use this to communicate to other service in private network without giving them a public DNS or making a route table entry.
-- What other improvements do you think would be interesting to add to the project?
- Answer: We can confiure and extend it to make our own service discovery module. Domain Name and their IP could be kept in something like etcd and resolution can be done by proxy rather than sending it to something like cloudflare.
